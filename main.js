@@ -20,6 +20,11 @@ function createHeader() {
   bannerHeading.className = "banner-heading";
   bannerHeading.innerHTML = "Welcome to amazing book shop!";
   banner.append(bannerHeading);
+
+  const bagIcon = document.createElement("img");
+  bagIcon.src = "./images/icon-bag.png";
+  bagIcon.className = "bag-icon";
+  banner.append(bagIcon);
 }
 
 function createCatalog(booksData) {
@@ -47,7 +52,6 @@ function createBook(element, books) {
 
     const bookImg = document.createElement("img");
     bookImg.className = "book-img";
-
     bookImg.src = books[i].imageLink;
     bookContainer.append(bookImg);
 

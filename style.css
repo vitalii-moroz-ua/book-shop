@@ -20,6 +20,12 @@ body {
   width: 100%;
 }
 
+.bag-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .banner-heading {
   font-weight: 300;
   font-size: 4.5rem;
