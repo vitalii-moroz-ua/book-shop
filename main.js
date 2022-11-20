@@ -16,18 +16,10 @@ function createHeader() {
   banner.className = "banner";
   header.append(banner);
 
-  // const bannerHeadingContainer = document.createElement("div");
-  // bannerHeadingContainer.className = "banner-heading-container";
-  // banner.append(bannerHeadingContainer);
-
   const bannerHeading = document.createElement("h1");
   bannerHeading.className = "banner-heading";
   bannerHeading.innerHTML = "Welcome to amazing book shop!";
   banner.append(bannerHeading);
-
-  // const bannerButton = document.createElement("button");
-  // bannerButton.innerHTML = "Check our books";
-  // bannerHeadingContainer.append(bannerButton);
 }
 
 function createCatalog(booksData) {
@@ -55,11 +47,12 @@ function createBook(element, books) {
 
     const bookImg = document.createElement("img");
     bookImg.className = "book-img";
+
     bookImg.src = books[i].imageLink;
     bookContainer.append(bookImg);
 
     const bookDetails = document.createElement("div");
-    bookImg.className = "book-details";
+    bookDetails.className = "book-details";
     bookContainer.append(bookDetails);
 
     const bookOverview = document.createElement("div");
@@ -76,14 +69,19 @@ function createBook(element, books) {
     title.innerHTML = books[i].title;
     bookOverview.append(title);
 
-    const price = document.createElement("p");
-    price.className = "price";
-    price.innerHTML = "Price: " + books[i].price;
-    bookOverview.append(price);
-
     const showMore = document.createElement("div");
     showMore.className = "show-more";
     bookDetails.append(showMore);
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.innerHTML = "Price: $" + books[i].price;
+    showMore.append(price);
+
+    const bagBtn = document.createElement("button");
+    bagBtn.className = "bag-btn";
+    bagBtn.innerHTML = "Add to bag";
+    showMore.append(bagBtn);
 
     const more = document.createElement("div");
     more.className = "more";
@@ -93,20 +91,10 @@ function createBook(element, books) {
       descriptionContainer.style.display = "block";
     });
 
-    const bagBtn = document.createElement("button");
-    bagBtn.className = "bag-btn";
-    bagBtn.innerHTML = "Add to bag";
-    showMore.append(bagBtn);
-
     // description pop-up start
     const descriptionContainer = document.createElement("div");
     descriptionContainer.className = "description-container";
     bookContainer.append(descriptionContainer);
-
-    const descriptionTitle = document.createElement("h3");
-    descriptionTitle.className = "description-title";
-    descriptionTitle.innerHTML = books[i].title;
-    descriptionContainer.append(descriptionTitle);
 
     const description = document.createElement("p");
     description.className = "description";
