@@ -65,13 +65,20 @@ function createCatalog(books) {
   totalPrice.innerHTML = "0";
   totalPriceContainer.append(totalPrice);
 
-  const confirmOrderBtn = document.createElement("button");
+  const confirmOrderBtn = document.createElement("a");
   confirmOrderBtn.className = "confirm-order-btn";
   confirmOrderBtn.innerHTML = "Confirm order";
+  confirmOrderBtn.href = "";
+  confirmOrderBtn.addEventListener("click", () => {
+    if (parseInt(bookCounter.innerHTML) === 0) {
+      alert("Please add a book to your bag");
+    } else {
+      confirmOrderBtn.href = "./order_form/order.html";
+    }
+  });
   bagFooter.append(confirmOrderBtn);
-
   // hide and show shopping bag
-  bagIconContainer.addEventListener("click", (e) => {
+  bagIconContainer.addEventListener("click", (event) => {
     if (bagContainer.style.display === "none") {
       bagContainer.style.display = "block";
     } else {

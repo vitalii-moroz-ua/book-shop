@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Order form</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="form-header">Complete the order form</h1>
+    </header>
+    <main>
+      <form action="" class="order-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /> <br />
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required /> <br />
+        <label for="delivery-date">Delivery date:</label>
+        <input
+          type="date"
+          id="delivery-date"
+          name="delivery-date"
+          value="2018-07-22"
+          min="2018-01-01"
+          max="2018-12-31"
+          required
+        />
+        <br />
+
+        <label for="street">Street:</label>
+        <input type="text" id="stret" name="street" required /> <br />
+
+        <label for="house">House number:</label>
+        <input type="number" id="house" name="house" required /> <br />
+
+        <label for="flat">Flat number:</label>
+        <input type="number" id="flat" name="flat" required /> <br />
+
+        <!-- radiogroup -->
+        <h2 class="payment-method">Payment method</h2>
+        <input type="radio" id="cash" name="payment" required />
+        <label for="cash">Cash:</label><br />
+        <input type="radio" id="card" name="payment" />
+        <label for="card">Card:</label><br />
+
+        <!-- checkbox group -->
+        <h2 class="gifts">Choose two gifts</h2>
+        <input type="checkbox" id="pack" name="gifts" />
+        <label for="pack">Pack as a gift</label><br />
+        <input type="checkbox" id="postcard" name="gifts" />
+        <label for="postcard">Add postcard</label> <br />
+        <input type="checkbox" id="discount" name="gifts" />
+        <label for="discount">Provide 2% discount to the next time</label><br />
+        <input type="checkbox" id="pen" name="gifts" />
+        <label for="pen">Branded pen or pencil</label><br />
+
+        <button type="submit">Complete</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+</html>

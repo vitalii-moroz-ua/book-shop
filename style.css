@@ -81,6 +81,7 @@ body {
 }
 
 .confirm-order-btn {
+  text-decoration: none;
   text-transform: uppercase;
   border: 1px solid hsl(207, 43%, 8%);
   color: hsl(207, 43%, 8%);
@@ -93,7 +94,6 @@ body {
   color: hsl(0, 0%, 100%);
   border-color: hsl(0, 0%, 100%);
   background-color: hsl(207, 43%, 8%);
-  cursor: pointer;
 }
 
 .book-in-bag-container {
