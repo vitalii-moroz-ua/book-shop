@@ -6,9 +6,10 @@ fetch("./books.json") //path to the file with json data
     createCatalog(data);
   });
 
-createHeader();
+function createCatalog(books) {
+  const bookCounter = document.createElement("p");
 
-function createHeader() {
+  // header section start
   const header = document.createElement("header");
   document.body.append(header);
 
@@ -21,13 +22,65 @@ function createHeader() {
   bannerHeading.innerHTML = "Welcome to amazing book shop!";
   banner.append(bannerHeading);
 
+  const bagIconContainer = document.createElement("div");
+  bagIconContainer.className = "bag-icon-container";
+  banner.append(bagIconContainer);
+
   const bagIcon = document.createElement("img");
   bagIcon.src = "./images/icon-bag.png";
   bagIcon.className = "bag-icon";
-  banner.append(bagIcon);
-}
+  bagIconContainer.append(bagIcon);
 
-function createCatalog(booksData) {
+  const circle = document.createElement("div");
+  circle.className = "circle";
+  bagIconContainer.append(circle);
+
+  bookCounter.className = "book-counter";
+  bookCounter.innerHTML = "0";
+  circle.append(bookCounter);
+
+  const bagContainer = document.createElement("div");
+  bagContainer.className = "bag-container";
+  banner.append(bagContainer);
+
+  const bag = document.createElement("div");
+  bag.className = "bag";
+  bagContainer.append(bag);
+
+  const bagFooter = document.createElement("div");
+  bagFooter.className = "bag-footer";
+  bagContainer.append(bagFooter);
+
+  const totalPriceContainer = document.createElement("div");
+  totalPriceContainer.className = "total-price-container";
+  bagFooter.append(totalPriceContainer);
+
+  const totalPriceTitle = document.createElement("p");
+  totalPriceTitle.className = "total-price-title";
+  totalPriceTitle.innerHTML = "Total: $";
+  totalPriceContainer.append(totalPriceTitle);
+
+  const totalPrice = document.createElement("p");
+  totalPrice.className = "total-price";
+  totalPrice.innerHTML = "0";
+  totalPriceContainer.append(totalPrice);
+
+  const confirmOrderBtn = document.createElement("button");
+  confirmOrderBtn.className = "confirm-order-btn";
+  confirmOrderBtn.innerHTML = "Confirm order";
+  bagFooter.append(confirmOrderBtn);
+
+  // hide and show shopping bag
+  bagIconContainer.addEventListener("click", (e) => {
+    if (bagContainer.style.display === "none") {
+      bagContainer.style.display = "block";
+    } else {
+      bagContainer.style.display = "none";
+    }
+  });
+
+  // header section end
+
   const main = document.createElement("main");
   document.body.append(main);
 
@@ -40,15 +93,10 @@ function createCatalog(booksData) {
   catalog.className = "catalog";
   main.append(catalog);
 
-  // fill catalog with books
-  createBook(catalog, booksData);
-}
-
-function createBook(element, books) {
   for (let i = 0; i < books.length; i++) {
     const bookContainer = document.createElement("div");
     bookContainer.className = "book-container";
-    element.append(bookContainer);
+    catalog.append(bookContainer);
 
     const bookImg = document.createElement("img");
     bookImg.className = "book-img";
@@ -86,6 +134,54 @@ function createBook(element, books) {
     bagBtn.className = "bag-btn";
     bagBtn.innerHTML = "Add to bag";
     showMore.append(bagBtn);
+
+    // increment bag counter and add books to bag
+    bagBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      bookCounter.innerHTML = `${parseInt(bookCounter.innerHTML) + 1}`;
+
+      const bookInBagContainer = document.createElement("div");
+      bookInBagContainer.className = "book-in-bag-container";
+
+      const removeBook = document.createElement("p");
+      removeBook.className = "remove-book";
+      removeBook.innerHTML = "X";
+      bookInBagContainer.append(removeBook);
+
+      const bookInBag = document.createElement("div");
+      bookInBag.className = "book-in-bag";
+      bookInBagContainer.append(bookInBag);
+
+      const price = event.target.previousElementSibling.innerHTML.replace(
+        /[^0-9]/g,
+        ""
+      );
+      // increment total price by the book's price
+      totalPrice.innerHTML = `${
+        parseInt(totalPrice.innerHTML) + parseInt(price)
+      }`;
+
+      const author = document.createElement("p");
+      author.className = "bag-author";
+      author.innerHTML =
+        event.target.parentElement.previousElementSibling.firstElementChild.innerHTML;
+      const title = document.createElement("h3");
+      title.className = "bag-title";
+      title.innerHTML =
+        event.target.parentElement.previousElementSibling.lastElementChild.innerHTML;
+      bookInBag.append(title);
+      bookInBag.append(author);
+      bag.append(bookInBagContainer);
+
+      // remove book from bag and decriment book counter
+      removeBook.addEventListener("click", (event) => {
+        bookCounter.innerHTML = `${parseInt(bookCounter.innerHTML) - 1}`;
+        event.target.parentElement.remove();
+        totalPrice.innerHTML = `${
+          parseInt(totalPrice.innerHTML) - parseInt(price)
+        }`;
+      });
+    });
 
     const more = document.createElement("div");
     more.className = "more";

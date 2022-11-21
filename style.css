@@ -20,10 +20,103 @@ body {
   width: 100%;
 }
 
-.bag-icon {
+.bag-icon-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 3px;
+}
+
+.book-counter {
+  user-select: none;
+  color: hsl(207, 43%, 8%);
+}
+
+.bag-container {
+  padding: 1rem 0 0 1rem;
+  display: none;
+  background-color: hsl(0, 0%, 100%);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  z-index: 10;
+  top: 67px;
+  right: 65px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.bag {
+  overflow-y: auto;
+  height: 420px;
+}
+
+.bag-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-block: 1rem;
+}
+
+.total-price-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.confirm-order-btn {
+  text-transform: uppercase;
+  border: 1px solid hsl(207, 43%, 8%);
+  color: hsl(207, 43%, 8%);
+  transition: all 0.3s ease-in-out;
+  padding-inline: 1rem;
+  padding-block: 0.4rem;
+}
+
+.confirm-order-btn:hover {
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 100%);
+  background-color: hsl(207, 43%, 8%);
+  cursor: pointer;
+}
+
+.book-in-bag-container {
+  background-color: hsl(207, 43%, 8%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.remove-book {
+  margin-left: 97%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.remove-book:hover {
+  color: hsl(46, 100%, 58%);
+}
+
+.bag-author {
+  padding-block: 1rem;
 }
 
 .banner-heading {
@@ -126,7 +219,7 @@ main {
 
 .more:hover {
   cursor: pointer;
-  color: rgb(255, 205, 42);
+  color: hsl(46, 100%, 58%);
 }
 
 /* description container */
@@ -158,6 +251,5 @@ main {
 .close-btn:hover {
   color: hsl(46, 100%, 58%);
   border-color: hsl(46, 100%, 58%);
-
   cursor: pointer;
 }
