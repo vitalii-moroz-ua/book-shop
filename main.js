@@ -68,7 +68,7 @@ function createCatalog(books) {
   const confirmOrderBtn = document.createElement("a");
   confirmOrderBtn.className = "confirm-order-btn";
   confirmOrderBtn.innerHTML = "Confirm order";
-  confirmOrderBtn.href = "";
+  confirmOrderBtn.style.cursor = "pointer";
   confirmOrderBtn.addEventListener("click", () => {
     if (parseInt(bookCounter.innerHTML) === 0) {
       alert("Please add a book to your bag");

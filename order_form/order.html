@@ -14,9 +14,23 @@
     <main>
       <form action="" class="order-form">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required /> <br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          pattern="[A-Za-z]{4,100}"
+          required
+        />
+        <br />
         <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname" required /> <br />
+        <input
+          type="text"
+          id="surname"
+          name="surname"
+          pattern="[A-Za-z]{4,100}"
+          required
+        />
+        <br />
         <label for="delivery-date">Delivery date:</label>
         <input
           type="date"
@@ -24,19 +38,33 @@
           name="delivery-date"
           value="2018-07-22"
           min="2018-01-01"
-          max="2018-12-31"
           required
         />
         <br />
 
         <label for="street">Street:</label>
-        <input type="text" id="stret" name="street" required /> <br />
+        <input
+          type="text"
+          id="stret"
+          name="street"
+          pattern="[A-Za-z0-9]{5,1000}"
+          required
+        />
+        <br />
 
         <label for="house">House number:</label>
-        <input type="number" id="house" name="house" required /> <br />
+        <input
+          type="number"
+          id="house"
+          name="house"
+          pattern="/[0-9]/"
+          required
+        />
+        <br />
 
         <label for="flat">Flat number:</label>
-        <input type="number" id="flat" name="flat" required /> <br />
+        <input type="number" id="flat" name="flat" pattern="/[0-9]/" required />
+        <br />
 
         <!-- radiogroup -->
         <h2 class="payment-method">Payment method</h2>
@@ -58,7 +86,10 @@
 
         <button type="submit" class="complete-btn">Complete</button>
       </form>
+
+      <div class="order-summary"></div>
     </main>
     <footer></footer>
+    <script src="order.js"></script>
   </body>
 </html>

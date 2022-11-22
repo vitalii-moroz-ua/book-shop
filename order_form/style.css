@@ -55,3 +55,7 @@ main {
   background-color: hsl(207, 43%, 8%);
   cursor: pointer;
 }
+
+.order-summary {
+  display: none;
+}
